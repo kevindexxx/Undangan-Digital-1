@@ -1,0 +1,243 @@
+:root {
+  --brown-sugar: #e78d26;
+  --bg: #0a0a0a;
+  --shadow: 0 2px 2px rgb(1 1 1 / 0.5);
+  --white: #ffffff;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: "Work Sans", serif;
+  min-height: 4000px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 101.5vh;
+}
+
+.hero h1,
+.hero h4,
+.hero p {
+  text-shadow: var(--shadow);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/bg-hero.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.hero h1 {
+  font-family: "Moon Dance", serif;
+  font-weight: bold;
+  font-size: 6rem;
+}
+
+.hero h4 {
+  font-size: 1.6rem;
+}
+
+.hero p {
+  font-size: 1.4rem;
+}
+
+.hero a {
+  color: var(--brown-sugar);
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero a:hover {
+  background-color: var(--brown-sugar);
+  transition: 0.6s;
+  color: white;
+}
+
+.navbar-gw{
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(4px);
+}
+
+.navbar-gw .offcanvas{
+  height: 100vh;
+}
+
+
+.navbar-gw .navbar-brand, 
+.navbar-gw .offcanvas-title {
+
+  font-family: "Moon Dance", serif !important;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.navbar-gw .nav-link{
+  font-weight: 600px;
+  text-transform: uppercase;
+}
+
+/* home */
+.home{
+  background-image: url(img/bg-home-transp.png);
+  background-size: cover;
+  min-height: 100vh;
+  margin-top: -6rem;
+  padding-top: 15rem;
+  padding-bottom: 5rem;
+}
+
+.home h2,
+.info h2,
+.story h2
+{
+  color: var(--white);
+  font-family:"Moon Dance", serif;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-shadow: var(--shadow);
+}
+
+.home h3{
+  color:#444;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.home p{}
+
+.home .couple{
+  margin-top: 100px;
+}
+
+.home .couple h3{
+  font-family:"Moon Dance", serif;
+  font-size: 2.4rem;
+}
+
+.home .couple img{
+  width: 100%;
+
+}
+
+.info {
+  background-color: rgb(241, 190, 123);
+  color: white;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.info .alamat{
+  font-size: 1.1rem;
+}
+
+.info .card{
+  background-color: rgb(96, 96, 96, 0.2) !important;
+  color: rgb(255, 255, 255) !important;
+  border: 2px solid white;
+}
+
+.info .card-header{
+  border-bottom: 2px solid white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.info .card-body{
+  font-size: 1rem;
+}
+
+.info .card-footer{
+  border-top: 2px solid white;
+}
+
+.story{
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.story span{
+  text-transform: uppercase;
+  color: #444;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  display: blocks;
+}
+
+.story p{
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.timeline{
+  list-style: none;
+  padding: 1.4rem 0;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.timeline::before{
+  content: '';
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 1px;
+  background-color: #444;
+  left: 50%;
+}
+
+.timeline li {
+  margin-bottom: 1.5rem;
+
+}
+
+
+
+
+
+
+
+/* media query */
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 65%;
+  }
+
+  .navbar-gw .nav-link{
+    font-weight: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .sticky-top {
+    overflow: hidden;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 60%;
+  }
+}
