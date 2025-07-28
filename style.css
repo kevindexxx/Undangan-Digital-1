@@ -201,9 +201,65 @@ body {
 
 .timeline li {
   margin-bottom: 1.5rem;
-
+  position: relative;
 }
 
+.timeline li::before,
+.timeline li::after{
+  content: '';
+  display: table;
+}
+
+.timeline li::after{
+  clear: both;
+}
+
+.timeline li .timeline-image{
+  width: 160px;
+  height: 160px;
+  background-color: #444;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.timeline li .timeline-panel {
+  width: 40%;
+  float: left;
+  border: 1px solid #444;
+  padding: 2rem;
+  position: relative;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.timeline li .timeline-panel::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #444;
+  border-right: 0 solid #444;
+  border-bottom: 15px solid transparent;
+  top: 80px;
+  right: -15px;
+}
+
+.timeline li .timeline-panel::after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  top: 81px;
+  right: -13px;
+}
 
 
 
