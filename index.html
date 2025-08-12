@@ -403,6 +403,16 @@
         </div>
     </footer>
 
+    <div id="audio-container">
+        <audio id="lagu" autoplay loop>
+            <source src="audio/Barasuara - Terbuang Dalam Waktu (Official Video).mp3" type="audio/mp3">
+        </audio>
+
+        <div class="audio-icon-wrapper" style="display: none;">
+            <i class="bi bi-disc-fill"></i>
+        </div>
+    </div>
+
 
 
 
@@ -438,8 +448,11 @@
     </script>
 
     <script>
-            const rootElement = document.querySelector(":root");
- 
+        const rootElement = document.querySelector(":root");
+        const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+        const lagu = document.querySelector('#lagu');
+        let isPlaying = false;
+
             function disableScroll(){
  
              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -455,12 +468,30 @@
             function enableScroll() {
                 window.onscroll = function () { };
                 rootElement.style.scrollBehavior = 'smooth';
-                localStorage.setItem('opened', 'true');
+                playAudio();
+                // localStorage.setItem('opened', 'true'); 
             }
 
-            if(!localStorage.getItem('opened')){
-                disableScroll(); 
+            function playAudio(){
+                
+                lagu.volume = 0.2;
+                audioIconWrapper.style.display = 'flex';
+                lagu.play();
+                isPlaying = true;
             }
+
+            audioIconWrapper.onclick = function () {
+                if (isPlaying) {
+                    lagu.pause();
+                }else {lagu.play()}
+
+                isPlaying = !isPlaying
+            }   
+
+            // if(!localStorage.getItem('opened')){
+            //     disableScroll(); 
+            // }
+            disableScroll();
     </script>
 
     <script>
