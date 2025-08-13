@@ -24,7 +24,7 @@
 <body>
     <section id="hero" class="hero w-100 h-100 p-3 m-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>  
-            <h4>Kepada Bapak/Ibu/Saudara/i</h4>
+            <h4> Kepada <span> Bapak/Ibu/Saudara/i, </span></h4>
             <h1>Kevin & Zahra</h1>
             <p>Akan melangsungkan pernikahan dalam:</p>
             <div class="simply-countdown"></div>
@@ -246,7 +246,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, officia.</p>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
                 <div class="col mt-3">
                     <a href="img/Gallery/foto 1.png" data-toggle="lightbox" data-caption="Pus putih dan Pus Hitam 1" data-gallery="MyGallery">
                         <img src="img/Gallery/thumbnail/1.png" alt="Pus putih dan Pus Hitam 1" class="img-fluid w-100 rounded">
@@ -433,7 +433,7 @@
         day: 25,
     });
     </script>
-
+  
     <script>
         const stickyTop = document.querySelector('.sticky-top');
         const offcanvas = document.querySelector('.offcanvas');
@@ -450,7 +450,10 @@
     <script>
         const rootElement = document.querySelector(":root");
         const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+        const audioIcon = document.querySelector('.audio-icon-wrapper i');
         const lagu = document.querySelector('#lagu');
+
+        
         let isPlaying = false;
 
             function disableScroll(){
@@ -483,9 +486,13 @@
             audioIconWrapper.onclick = function () {
                 if (isPlaying) {
                     lagu.pause();
-                }else {lagu.play()}
+                    audioIcon.classList.replace('bi-disc-fill', 'bi-pause-circle-fill');
+                }else {
+                    lagu.play();
+                    audioIcon.classList.replace('bi-pause-circle-fill','bi-disc-fill');
+                }
 
-                isPlaying = !isPlaying
+                isPlaying = !isPlaying;
             }   
 
             // if(!localStorage.getItem('opened')){
@@ -511,6 +518,19 @@
         });
     });
 
+    </script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('nama') || '';
+        const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
+        const namaContainer = document.querySelector('.hero h4 span');
+
+        console.log(nama);
+        namaContainer.innerText =`${pronoun} ${nama},` .replace(/ ,$/, ',');
+
+
+        document.querySelector('#nama').value = nama;
     </script>
 </body>
 </html>
